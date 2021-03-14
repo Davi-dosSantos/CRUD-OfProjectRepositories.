@@ -9,8 +9,6 @@ app.use(express.json());
 const repositories = [];
 
 app.get("/repositories", (request, response) => {
-  const { repositories } = request;
-
   return response.json(repositories);
 });
 
@@ -24,8 +22,8 @@ app.post("/repositories", (request, response) => {
     techs,
     likes: 0
   };
-  repositories.push(repository);
-  return response.status(204).json(repository);
+
+  return response.json(repository);
 });
 
 app.put("/repositories/:id", (request, response) => {
